@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/2524703/save-text-file-utf-8-encoded-with-vba
+
+
+Dim fsT As Object
+Set fsT = CreateObject("ADODB.Stream")
+fsT.Type = 2 'Specify stream type - we want To save text/string data.
+fsT.Charset = "utf-8" 'Specify charset For the source text data.
+fsT.Open 'Open the stream And write binary data To the object
+fsT.WriteText "special characters: äöüß"
+fsT.SaveToFile sFileName, 2 'Save binary data To disk
